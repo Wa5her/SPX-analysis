@@ -1,0 +1,8 @@
+# Ignore the virtual environment directory
+SPX-venv/
+stock_daily_data/
+qtrly-data/
+# Other files and directories to ignore
+*.pyc
+__pycache__/
+.DS_Store
