@@ -1,6 +1,7 @@
 # Ignore the virtual environment directory
 SPX-venv/
 stock_daily_data/
+daily-data/
 qtrly-data/
 # Other files and directories to ignore
 *.pyc

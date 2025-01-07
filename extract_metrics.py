@@ -39,8 +39,10 @@ def extract_metrics(metrics_and_units, directory="./qtrly-data"):
 
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON in file {filename}: {e}")
-
-    return pd.DataFrame(data)
+    df = pd.DataFrame(data)
+    df_output = df.sort_values(by='filed', ascending=False).pivot_table(index=['ticker', 'start', 'end',
+                                                                          'form', 'filed'], columns='metric', values='val', aggfunc='first').reset_index()
+    return df_output
 
 if __name__ == "__main__":
     with open('metrics_to_extract.json', 'r') as file:
