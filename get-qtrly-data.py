@@ -3,6 +3,7 @@ from time import sleep
 import pandas as pd
 import requests
 import os
+from io import StringIO
 # import multiprocessing
 
 
@@ -33,7 +34,8 @@ def _main():
     
 
     # Read the tables on the Wikipedia page
-    tables = pd.read_html(wiki_url)
+    response = requests.get(wiki_url)
+    tables = pd.read_html(StringIO(response.text))
 
     # The first table on the page contains the S&P 500 companies
     sp500_table = tables[0]
