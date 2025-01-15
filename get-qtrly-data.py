@@ -39,6 +39,7 @@ def _main():
 
     # The first table on the page contains the S&P 500 companies
     sp500_table = tables[0]
+    sp500_table.to_csv("sp500.csv", index=False)
 
     new = exist = failed = 0
     save_dir = os.path.join(os.getcwd(), "qtrly-data")
