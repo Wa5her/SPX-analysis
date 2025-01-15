@@ -19,6 +19,7 @@ def get_daily_data(input_file='extracted_data.csv',output_folder = 'daily-data')
             if not os.path.exists(csv_file):
                 data = yf.download(ticker, start - timedelta(days=3),
                             end + timedelta(days=3), progress=False)
+                data.columns = ['Close', 'High', 'Low', 'Open', 'Volume']
                 data.to_csv(csv_file, index=False)
                 #print("Downloaded data for ", ticker)
         except Exception as e:
