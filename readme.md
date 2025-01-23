@@ -1,27 +1,20 @@
-Run get-qtrly-data.py to pull data from all SEC filings of companies listed in the S&P 500 index.
+## Steps to get the Code setup 
+1. Run get-qtrly-data.py to output json files in qtrly-data folder
+2. Run extract-metrics.py to pull metrics in metrics_to_extract.json into extracted_data.csv
+3. Run get-daily-data.py to get csv files of daily stock price in daily-data folder 
+4. transform_data.ipynb then builds the training data by blending the collected infromation
+5. prepare_ML.ipynb takes the Training data set and runs a regression algorithm 
 
-### Requirements:
-* Python 3
-* Pandas
+# Issues to fix:
+1. Scaling is done for all variables in the same way. need to customise it better
 
-### Usage:
-```bash
-python get-qtrly-data.py
-```
+# Signals to collect:
+* Macro economic metrics - consumer confidence, labour participation 
+* Banking system metrics - GDP, Repo rate 
 
-Change metrics-to-extract.json to choose the metrics you want to pull from all these files. The basic config pulls information about EPS. 
-
-Run extract-metrics.py to extract the data from the downloaded files and save it in a csv file extracted_data.csv.
-
-Run get-daily-data.py to pull daily data for each of the companies listed in the S&P 500 index for the range of time in the extracted_data.csv file.
-
-### Requirements:
-* Python 3
-* Pandas
-
-### Usage:
-```bash
-python get-daily-data.py
-```
-
-Change metrics-to-extract.json to choose the metrics you want to pull from all these files. The basic config pulls information about EPS.
+# Variables to optimise :
+* past results for previous delcaration to SEC
+* Other metrics from quaterly results 
+* Industry and sector attributes and performance average
+* FEature extraction from stock price data
+* Feature engineering alternatives to PCA
