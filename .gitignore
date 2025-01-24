@@ -3,6 +3,7 @@ SPX-venv/
 stock_daily_data/
 daily-data/
 qtrly-data/
+test-json/
 # Other files and directories to ignore
 *.pyc
 *.csv
